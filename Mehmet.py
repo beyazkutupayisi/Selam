@@ -1,4 +1,4 @@
-hahahahahahahhsdef check_imports():
+def check_imports():
     try:
         import user_agent
         import datetime
