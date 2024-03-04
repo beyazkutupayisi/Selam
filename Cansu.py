@@ -46,7 +46,7 @@ BYellow = '\x1b[1;33m'
 	
 from datetime import datetime
 current_time = datetime.now()
-expiry_time = datetime.strptime('''2024-02-25 00:00:00.000''', '''%Y-%m-%d %H:%M:%S.%f''')
+expiry_time = datetime.strptime('''2024-03-07 00:00:00.000''', '''%Y-%m-%d %H:%M:%S.%f''')
 if current_time > expiry_time:
     print(' @phpmehmet tarafından bakıma alındı')
     exit()
