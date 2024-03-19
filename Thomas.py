@@ -757,7 +757,7 @@ def listeolusturmak():
     	email = user=str(hani['users'][hhan]['user']['username'])
     	a+=1
     	print(f'\033[1;33m[{a}]«--» : [{email}] ')
-    	user = email+'@gmail.com'
+    	
     	with open('thomas.txt', 'a') as (HA):
 	   		HA.write(f'{user}\n')
   except IndexError:
