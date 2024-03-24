@@ -11,7 +11,7 @@ def thomas():
        g=get(url+randomword(randrange(3,9))).json()['usernames']
        for username in g:
          print(username)
-         with open('qredesusers.txt','a') as f:
+         with open('thomas.txt','a') as f:
            f.write(username+'\n')
            f.close()
     except:thomas()
