@@ -718,4 +718,4 @@ def dosyasil():
         print(f' Dosya Bulunamadı ')
 
 if __name__ == '__main__':
-    ana_menu(
+    ana_menu()
