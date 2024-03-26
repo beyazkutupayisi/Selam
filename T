@@ -1,0 +1,281 @@
+import requests
+import random
+from getuseragent import UserAgent
+import webbrowser
+import requests
+import re
+from multiprocessing.dummy import Pool
+from os import system
+from user_agent import generate_user_agent
+import time
+import os
+import webbrowser
+from cfonts import render
+webbrowser.open('https://t.me/thomashack')
+def menu():
+    output = render('THOMAS', colors=['white', 'blue'], align='center')
+    print(output)
+    print("~ Programmer : @T5OMAS | Channel: @THOMASHACK ~")
+    print("\x1b[1;33m—" * 60)
+    print("""\x1b[38;5;117m1\x1b[38;5;231m - Telegram İzlenme  | \x1b[1;32m Aktif 
+\x1b[38;5;117m2\x1b[38;5;231m - Instagram Beğeni | \x1b[1;32m Aktif 
+\x1b[38;5;117m3 \x1b[38;5;231m- Tiktok İzlenme  | \x1b[1;32m Aktıf 
+\x1b[38;5;117m4 \x1b[38;5;231m- İnstagram Takipçi  | \x1b[1;31m Bakım 
+\x1b[38;5;117m5\x1b[38;5;231m - Tiktok Takipçi  | \x1b[1;31m Bakım 
+\x1b[38;5;117m6 \x1b[38;5;231m- Tiktok Beğeni  | \x1b[1;31m Bakım 
+\x1b[38;5;117m7 \x1b[38;5;231m- Telegram Abone  | \x1b[1;31m Bakim""")
+    print("\x1b[1;33m—" * 60)
+    secim = input("Lütfen bir seçenek girin (1-4): ")
+
+    if secim == "1":
+        telegram_izlenme_araci()
+    elif secim == "2":
+        instagram_begeni_araci()
+    elif secim == "3":
+        tiktok_izlenme_araci()
+    elif secim == "4":
+        print("İnstagram Takipçi bakımda.")
+    elif secim == "5":
+        print("Tiktok Takipçi bakımda.")
+    elif secim == "6":
+        print("Tiktok Beğeni bakımda.")
+    elif secim == "7":
+        print("Telegram Abone bakımda.")
+    else:
+        print("Geçersiz seçenek! Lütfen 1 ile 7 arasında bir seçenek girin.")
+
+
+def instagram_begeni_araci():
+    os.system("clear")
+    ua = UserAgent("ios").Random()
+    
+    logo = '''
+\x1b[1;39m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+\x1b[1;36m  
+٪٪@%+=++*#@@@@٪٪@@@٪٪@@@٪٪@%@@@@@٪٪@@@٪٪@@@٪٪@@@٪٪@@٪٪@
+@@@٪#====--=*%@@@٪٪@@%%%#**###%@@@@@٪٪@@@٪@@@٪٪@@@٪٪@@@
+@@@@@+=====---=*%@@#=-===*#%%%%%%@@@@@@@@@@@@@@@@@@@@@@
+@@@@@+======-----=-::----=+*#@٪٪٪٪٪٪٪٪٪٪٪٪٪٪٪٪@@@@@@@@@
+@@@@@+=====+=----...::------::=#@%##**+++***##%@@@@@@@@
+٪٪@@@*===-===---:::::=-=+---::.:----------=====*%@@@@٪@
+@@@٪٪#====-------:---++++++-::::-----========*%@@@٪٪@@@
+٪٪@@@@#==+=------:---=*+++=--::-----=+======#@@@٪@@@٪٪@
+@@@٪@@@%+=-------:---=*++----:-----=======+%@٪٪@@@٪٪@@@
+٪٪@@@@@#=--------*= =++++-::-:-----=-====+%٪@@@@@@@@@@@
+@@@@@%=----------+%*%#**#%-==------=====*@٪@@@@@@@@@@@@
+@@@٪#-:----------+#%+-==+%%*--------=+*%@٪@@@@@@@@@@@@@
+٪٪@@+=+=:::---=###%%*=.-=###+-------=@٪٪@@@٪٪@@@٪@@@@٪@
+@@@٪٪@@*++==---#%%%%%%%%%%#%%#=-----:+@@@@@@@٪٪@@@٪٪@@@
+٪٪@@@٪٪@@٪٪@%*+=#%%%%%%%%%%%#=--------@@@@@@@@@@٪@@@٪٪@
+@@@٪@@@٪٪@@@٪٪٪%++#%%+#%%%#*=++****+==@@٪٪@@@٪٪@@@٪٪@@@
+٪٪@@@@@@@@٪٪@###+:-=+++++*#%@٪٪@@٪٪٪@@٪@@@@@@@@@@@@@@@@
+@@@@@@@@@@@+-------------%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@٪@=:------------------+@٪@@@@@@@@@@@@@@@@@@@@@@
+٪٪@@@٪٪@@*--------------------:=@٪٪@@@٪٪@@@٪٪@@@٪@@@@٪@
+@@@٪@@@٪*-------=++=--=+++------*@@@٪٪@@@٪@@@٪٪@@@٪٪@@@
+٪٪@@@٪@+-------+*++*+++++*+------*٪@@@٪٪@@@٪٪@@@٪@@@٪٪@
+@@@٪٪#--------++++++++++++*=------+@٪@@@@٪@@@٪٪@@@٪٪@@@
+٪٪٪@+-------:-++++++++++++++-:-----=%٪٪@@@@٪@@@@٪@@@@٪@
+@@#=-------::=++++++++++++++=:-------*@٪@@@@@@@@@@@@@@@
+%+---------==++++++++++++++++---------=#@٪@@@@@@@@@@@@@
+=--------=*%%##*++++++++++*##*#*--------+@@٪٪@@@٪@@@@٪@
+--------=#%%%%%%#++++++++*%%%%%#*+-------=@@@٪٪@@@٪٪@@@
+%=------:+%%%%%%%*++++++*%%%%%%%#=-------=@٪٪@@@٪٪@@٪٪@
+@@%*++===#%%%%%%%#++++++*%%%%%%%#-------=%٪@@٪٪@@@٪٪@@@
+٪٪٪@٪٪٪@@%%%%%%%%%*+++++#%%%%%%%%#**+*#%@@@٪٪@@@٪@@@@٪@
+@@@@@@@@@%%%%%%%%%*+++++#%%%%%%%%%٪٪٪٪٪@@@@@@@@@@@@@@@@
+@@@@@@@@@%%%%%%%%%#++++*%%%%%%%%%%@@@@@@@@@@@@@@@@@@@@@
+٪٪@@@٪@%%%%%%%%%%%%#++*%%%%%%%%%%%%@@@٪٪@@@٪٪@@@٪@@@@٪@
+@@@٪@@@%%%%%%%%%%%%#++*%%%%%%%%%%%%@٪٪@@٪٪@@@٪٪@@@٪٪@@@
+٪٪@@@٪٪@##%%%%%%%##*++*###%%%%%%%%%@@@٪@@@%%%%%%@@@@٪٪@
+@@@٪@@@@=-=*###**+++++++***####==*@@%*=-=+*%%%%%%%%%%@@
+٪٪@@@٪٪%---++++++++++++++++++*=---=------+#%%%%@@@@@@@@
+@@@@@@٪%---=++++++++++++++++++-----------=%@@@@@@@@@@@@
+@@@@@@@+-----++++++++++++++++=---------+#@@@@@@@@@@@@@@
+٪٪@@@@+-------=++++++++**+++--------+#@٪٪@@٪٪@@@٪@@@@٪@
+@@@٪٪+-----------=========---------#٪٪@@@٪@@@٪٪@@@٪٪@@@
+٪٪@@*------------:::---:-----------=%@٪٪@@@٪٪@@@٪@@@٪٪@
+@@٪#------------+******+=-----------=@@@@٪@@@٪٪@@@٪٪@@@
+٪٪@=----------+%@@٪٪٪٪@٪٪%+----------#٪٪@@@٪@@@@٪@@@@٪@
+@@@=--------=%٪٪@@@@@@@@@٪@+---------#٪@@@@@@@@@@@@@@@@
+
+             < INSTAGRAM BEGENİ TOOL >
+              TELE : @T5OMAS / @THOMASHACK
+
+\x1b[1;39m ▬▬▬▬▬▬▬▬▬\x1b[1;39m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+'''
+    print(logo)
+    user = input('\x1b[1;32m [+] InstaGram Kullanıcı adı  : ')
+    link = input('\x1b[1;32m [+] Post Linkini giriniz: ')
+    res = requests.post('https://api.likesjet.com/freeboost/7', json={"instagram_username": user, "link": link, "email": f"whisper{random.randint(100000,999999)}@gmail.com"}, headers={"Host": "api.likesjet.com", "content-length": "137", "sec-ch-ua": "\"Google Chrome\";v\u003d\"119\", \"Chromium\";v\u003d\"119\", \"Not?A_Brand\";v\u003d\"24\"", "accept": "application/json, text/plain, */*", "content-type": "application/json", "sec-ch-ua-mobile": "?1", "user-agent": ua, "sec-ch-ua-platform": "\"Android\"", "origin": "https://likesjet.com", "sec-fetch-site": "same-site", "sec-fetch-mode": "cors", "sec-fetch-dest": "empty", "referer": "https://likesjet.com/", "accept-language": "en-XA,en;q\u003d0.9,ar-XB;q\u003d0.8,ar;q\u003d0.7,en-GB;q\u003d0.6,en-US;q\u003d0.5"}).json()
+    print(res['message'])
+
+def tiktok_izlenme_araci():
+    os.system("clear")
+    
+    thomas='''\x1b[1;31m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+\x1b[1;36m
+  
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@BJJJJB@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@5    ~&@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@5     ^P#@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@5       :~7J@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@&@@@5    ^:    .@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@BJ!^:.!@@5    5&B5J??@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@P^     .~@@5    P@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@Y    ^YPGB@@5    P@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@&.   ^&@@@@@@5    P@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@&.   ^&@@@@@@7    G@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@Y    :JPBGY~    7@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@G~.          ^Y@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@BY!~^^^^!JG&@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@&&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@B77!!!77#??&J!Y@@@@@&77!!!77P@@&&@@@@?!5@@@@@@@@@@@@@
+@@@@@@@#PP: ~PG&??&~ !&P?JG&PP~ :PP#Y!~~!Y&@^ ?&5?JB@@@@@@@@
+@@@@@@@@@@^ 7@@B  G~ :^ ?B@@@@7 ^@&: YBGJ ^&^ ^^ ?#@@@@@@@@@
+@@@@@@@@@@^ 7@@B  G~ :?.^G@@@@7 ^@#. P&&5 .&^ :? ^G@@@@@@@@@
+@@@@@@@@@@^.7@@B..B~.7@B^.?&@@7.~@@B7^::^?#@^.?@G^.J@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       
+                  ⠀
+                 < TİKTOK VİP İZLENME   TOOL >
+              TELEGRAM : @T5OMAS / @THOMASHACK
+
+\x1b[1;31m ▬▬▬▬▬▬▬▬▬\x1b[1;31m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬'''
+    print(thomas)
+    ua = UserAgent("ios").Random()
+    user = input(' \x1b[1;36m TikTok Kullanıcı adı  : ')
+    link = input('  Video Link Giriniz : ')
+    res = requests.post('https://api.likesjet.com/freeboost/3', json={"link": link, "tiktok_username": user, "email": f"whisper{random.randint(100000,999999)}@gmail.com"}, headers={"Host": "api.likesjet.com", "content-length": "137", "sec-ch-ua": "\"Google Chrome\";v\u003d\"119\", \"Chromium\";v\u003d\"119\", \"Not?A_Brand\";v\u003d\"24\"", "accept": "application/json, text/plain, */*", "content-type": "application/json", "sec-ch-ua-mobile": "?1", "user-agent": ua, "sec-ch-ua-platform": "\"Android\"", "origin": "https://likesjet.com", "sec-fetch-site": "same-site", "sec-fetch-mode": "cors", "sec-fetch-dest": "empty", "referer": "https://likesjet.com/", "accept-language": "en-XA,en;q\u003d0.9,ar-XB;q\u003d0.8,ar;q\u003d0.7,en-GB;q\u003d0.6,en-US;q\u003d0.5"}).json()
+    print(res)
+def telegram_izlenme_araci():
+    os.system("clear")
+    
+    asko = '''
+\x1b[1;39m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+\x1b[1;36m
+                     ^~!7?JJJYYYYJJJ?7!~^..                  
+              .^!?JYYYYYYYYYYYYYYYYYYYYYYJ?!^.              
+           :~?JYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYJ?~:           
+         ^?JYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYJ?^         
+       ~JYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYJ~       
+     ^?YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY?^     
+   .!YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY!.   
+  .?YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY?.  
+  ?YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY5GB#&&BYYYYYYYYYYYYY?. 
+ 7YYYYYYYYYYYYYYYYYYYYYYYYYYYYY5PG#&@@@@@@@&YYYYYYYYYYYYYY7 
+:YYYYYYYYYYYYYYYYYYYYYYYYY5PB#&@@@@@@@@@@@@BYYYYYYYYYYYYYYY:
+7YYYYYYYYYYYYYYYYYYYY5PB#&@@@@@@&BPB@@@@@@@5YYYYYYYYYYYYYYY7
+JJJJJJJJJJJJJJJY5GB#&@@@@@@@@&B5YG#@@@@@@@&YJJJJJJJJJJJJJJJJ
+JJJJJJJJJJJYGB&@@@@@@@@@@@#G5Y5G&@@@@@@@@@BJJJJJJJJJJJJJJJJJ
+JJJJJJJJJJJP#&&@@@@@@@&BPYJYP#@@@@@@@@@@@@5JJJJJJJJJJJJJJJJJ
+7JJJJJJJJJJJJYY55PGGG5YJJYG#@@@@@@@@@@@@@&YJJJJJJJJJJJJJJJJ7
+:JJJJJJJJJJJJJJJJJJJJJJJJP@@@@@@@@@@@@@@@GJJJJJJJJJJJJJJJJJ:
+ 7JJJJJJJJJJJJJJJJJJJJJJJJYP#@@@@@@@@@@@@YJJJJJJJJJJJJJJJJ7 
+  ?JJJJJJJJJJJJJJJJJJJJJJJJJJYPB&@@@@@@@BJJJJJJJJJJJJJJJJ?. 
+  .7JJJJJJJJJJJJJJJJJJJJJJJJJJJJY5G#&@@&5JJJJJJJJJJJJJJJ7.  
+   .!JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJY55YJJJJJJJJJJJJJJJ!.   
+     ^?JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ?^     
+       ~?JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ?~       
+         ^7JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ7^         
+           :~7JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ7~:           
+              .^!7?JJJJJJJJJJJJJJJJJJJJJJ?7!^.              
+                  ..^~!77??JJJJJJ??77!~^..                           ⠀
+
+                  ⠀
+                 < TELEGRAM İZLENME TOOL >
+              TELE : @T5OMAS / @THOMASHACK
+
+\x1b[1;39m ▬▬▬▬▬▬▬▬▬\x1b[1;39m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬'''
+    print(asko)
+
+    
+
+    link = input(' \033[1;36m [🔗] URL\'nizi girin: ').strip().replace('https://', '').replace('http://', '')
+
+    main_url = f'https://{link}?embed=1'
+    views_url = 'https://t.me/v/?views='
+
+    sent, bad_proxy, done, next_proxy = 0, 0, 0, 0
+
+    def send_views(proxy):
+        global sent, bad_proxy, done, next_proxy
+        while True:
+            try:
+                session = requests.session()
+                session.proxies.update({'http': f'http://{proxy}', 'https': f'http://{proxy}'})
+                session.headers.update({
+                    'accept-language': 'en-US,en;q=0.9',
+                    'user-agent': generate_user_agent(),
+                    'x-requested-with': 'XMLHttpRequest'
+                })
+                main_res = session.get(main_url).text
+                _token = re.search('data-view="([^"]+)', main_res).group(1)
+                views_req = session.get(views_url + _token, timeout=3)
+                print(' \033[1;32m  Görüntü Gönderildi✅ ' + 'Durum Kodu: ' + str(views_req.status_code))
+                sent += 1
+                done += 1
+                tit()
+
+            except:
+                print('\033[1;31m  Kötü Proxy❌: ' + proxy)
+                bad_proxy += 1
+                done += 1
+                tit()
+
+    prx = []
+    r = requests.get(
+        'https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all').text
+    for i in r.splitlines():
+        prx.append(i)
+    rr = requests.get(
+        'https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout=10000&country=all').text
+    for i in rr.splitlines():
+        prx.append(i)
+    rrr = requests.get(
+        'https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all').text
+    for i in rrr.splitlines():
+        prx.append(i)
+    bedwbara = []
+    bekeshahamui = []
+    for ii in prx:
+        if str(ii) in bedwbara:
+            pass
+        else:
+            bekeshahamui.append(ii)
+            bedwbara.append(ii)
+
+    def tit():
+        system("title " + f" /  -- Gönderilen: {sent} --  Kötü proxy'ler: {bad_proxy}")
+
+    proxy = [items.strip() for items in bekeshahamui]
+    pool = Pool(int(500))
+    pool.map(send_views, proxy)
+    pool.close()
+    pool.join()
+def main():
+    while True:
+        menu()
+        secim = input(" Devam etmek için Enter yapin: ")
+
+        if secim == "1":
+            instagram_begeni_araci()
+            break  # Diğer seçeneklere dönmeyi engellemek için döngüyü kır
+        elif secim == "2":
+            tiktok_izlenme_araci()
+        elif secim == "3":
+            telegram_izlenme_araci()
+        elif secim == "4":
+            print("Çıkış yapılıyor...")
+            break
+        else:
+            print(" He ana menuye gel bakalım askm.")
+
+if __name__ == "__main__":
+    main()
