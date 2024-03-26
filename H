@@ -680,7 +680,7 @@ def session():
             except:
                 qredes()
 
-    for _ in range(20):
+    for _ in range(100):
         Thread(target=qredes).start()
 
 def listeolusturmak():
