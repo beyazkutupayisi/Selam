@@ -3,6 +3,8 @@ try:
  from cfonts import render, say
 except:
  os.system('pip install python-cfonts')
+ os.system('pip install getuseragent')
+ os.system('pip install user_agent')
 import requests
 import random
 from getuseragent import UserAgent
