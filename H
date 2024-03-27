@@ -575,8 +575,8 @@ class Sajad:
 ⋘─────━𝐓𝐇𝐎𝐌𝐀𝐒━─────⋙
 [green]🇹🇷𝐈𝐒𝐈𝐌      - [yellow]{name}[/yellow][/green]
 [green]🇹🇷𝐄𝐌𝐀𝐈𝐋     - [yellow]{email}[/yellow][/green]
-[green]🇹🇷𝐓𝐀𝐊𝐈𝐏𝐂𝐈 - [yellow]{fols}[/yellow][/green]
-[green]🇹🇷𝐓𝐀𝐊𝐈𝐏  - [yellow]{fol}[/yellow][/green]
+[green]🇹🇷𝐓𝐀𝐊𝐈𝐏𝐂𝐈 - [yellow]{fol}[/yellow][/green]
+[green]🇹🇷𝐓𝐀𝐊𝐈𝐏  - [yellow]{fols}[/yellow][/green]
 [green]🇹🇷𝐓𝐀𝐑𝐈𝐇 [yellow]{datet}[/yellow][/green]
 [green]🇹🇷𝐑𝐄𝐒𝐓      - [yellow]{rest}[/yellow][/green]
 [green]🇹🇷𝐁𝐈𝐎       - [yellow]{bio}[/yellow][/green]
