@@ -1,3 +1,8 @@
+import os
+try:
+ from cfonts import render, say
+except:
+ os.system('pip install python-cfonts')
 import requests
 import random
 from getuseragent import UserAgent
